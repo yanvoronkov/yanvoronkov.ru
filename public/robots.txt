@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://yanvoronkov.ru/sitemap.xml
+Disallow: /
