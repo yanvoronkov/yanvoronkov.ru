@@ -542,12 +542,23 @@
     <!-- Виджет чата Gramos -->
     <script src="https://gramos.inetskills.ru/widget.js" defer></script>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        window.GramOSWidget.init({
-          token: "widget_5cbb540e090049bc9c9ba725637deb18",
-          apiUrl: "wss://gramos.inetskills.ru"
-        });
-      });
+      (function() {
+        function initWidget() {
+          if (window.GramOSWidget) {
+            window.GramOSWidget.init({
+              token: "widget_5cbb540e090049bc9c9ba725637deb18",
+              apiUrl: "wss://gramos.inetskills.ru"
+            });
+          } else {
+            setTimeout(initWidget, 50);
+          }
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initWidget);
+        } else {
+          initWidget();
+        }
+      })();
     </script>
 </body>
 </html>
