@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { Resend } from 'resend';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Загрузка переменных окружения из .env файла
 dotenv.config();
@@ -203,6 +205,18 @@ app.post('/api/contact', async (req, res) => {
       errors
     });
   }
+});
+
+// Определение путей для ES-модулей
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Раздача статических файлов фронтенда из папки ../dist
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Все запросы, кроме API, направляем на index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 // Запуск сервера
