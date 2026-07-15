@@ -128,13 +128,15 @@ function initPortfolioFilter() {
 }
 
 /**
- * Валидация и обработка формы контактов
+ * Валидация и обработка формы контактов с отправкой на бэкенд
  */
 function initContactForm() {
   const contactForm = document.getElementById('contact-form');
   if (!contactForm) return;
 
-  contactForm.addEventListener('submit', (event) => {
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+  contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const nameInput = document.getElementById('form-name');
@@ -152,14 +154,36 @@ function initContactForm() {
       return;
     }
 
-    // Здесь можно интегрировать реальную отправку данных на бэкенд / webhook
-    console.log('Отправка формы:', { name, contact, desc });
+    // Блокируем кнопку отправки и меняем текст
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправка...';
 
-    // Показ успешного тост-сообщения
-    showToast(`Спасибо, ${name}! Заявка успешно отправлена.`);
-    
-    // Сброс формы
-    contactForm.reset();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, contact, desc })
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        showToast(`Спасибо, ${name}! Заявка успешно отправлена.`);
+        contactForm.reset();
+      } else {
+        throw new Error(result.message || 'Ошибка сервера при отправке.');
+      }
+    } catch (err) {
+      console.error('Ошибка отправки формы:', err);
+      showToast(err.message || 'Не удалось отправить заявку. Попробуйте еще раз.', false);
+    } finally {
+      // Разблокируем кнопку
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+    }
   });
 }
 

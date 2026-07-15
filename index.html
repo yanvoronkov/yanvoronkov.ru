@@ -538,5 +538,16 @@
 
     <!-- Подключение JS-скрипта логики как ES-модуля -->
     <script type="module" src="/src/js/main.js"></script>
+
+    <!-- Виджет чата Gramos -->
+    <script src="https://gramos.inetskills.ru/widget.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        window.GramOSWidget.init({
+          token: "widget_31e7098d245b4ca18a9528085d222700",
+          apiUrl: "wss://gramos.inetskills.ru"
+        });
+      });
+    </script>
 </body>
 </html>
