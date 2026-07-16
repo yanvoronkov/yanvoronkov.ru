@@ -80,12 +80,18 @@
       ]
     }
     </script>
+
+    <!-- Cloudflare Turnstile CAPTCHA Скрипт -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback&render=explicit" async defer></script>
 </head>
-<body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text font-sans antialiased selection:bg-brand-indigo selection:text-white">
+<body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text font-sans antialiased selection:bg-brand-indigo selection:text-white relative">
+
+    <!-- Премиальная фоновая сетка-подложка -->
+    <div class="premium-grid" aria-hidden="true"></div>
 
     <!-- Шапка / Навигация -->
     <header class="fixed top-0 left-0 w-full z-40 bg-light-bg/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-light-border dark:border-dark-border transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
             <!-- Логотип -->
             <a href="#" class="flex items-center space-x-3 group" aria-label="На главную">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-indigo to-brand-violet flex items-center justify-center text-white font-mono font-bold text-lg shadow-lg shadow-brand-indigo/20 transform group-hover:scale-105 transition-all duration-300">
@@ -101,7 +107,6 @@
             <nav class="hidden md:flex items-center space-x-1 bg-neutral-100 dark:bg-neutral-900/60 p-1.5 rounded-full border border-light-border dark:border-dark-border" aria-label="Основное меню">
                 <a href="#about" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:text-brand-indigo text-neutral-600 dark:text-neutral-400">Обо мне</a>
                 <a href="#services" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:text-brand-indigo text-neutral-600 dark:text-neutral-400">Услуги</a>
-                <a href="#projects" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:text-brand-indigo text-neutral-600 dark:text-neutral-400">Проекты</a>
                 <a href="#contact" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:text-brand-indigo text-neutral-600 dark:text-neutral-400">Контакты</a>
             </nav>
 
@@ -138,7 +143,6 @@
             <nav class="px-6 py-4 flex flex-col space-y-3" aria-label="Мобильное меню навигации">
                 <a href="#about" class="mobile-link text-sm font-medium py-2">Обо мне</a>
                 <a href="#services" class="mobile-link text-sm font-medium py-2">Услуги</a>
-                <a href="#projects" class="mobile-link text-sm font-medium py-2">Проекты</a>
                 <a href="#contact" class="mobile-link text-sm font-medium py-2">Контакты</a>
                 <a href="#contact" class="mobile-link text-sm font-semibold py-3 text-center bg-brand-indigo text-white rounded-xl">Начать проект</a>
             </nav>
@@ -152,7 +156,7 @@
             <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-indigo/10 dark:bg-brand-indigo/5 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
             <div class="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-brand-violet/10 dark:bg-brand-violet/5 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
 
-            <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 relative">
                 <!-- Статус-бейдж -->
                 <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border shadow-sm mb-6 animate-fade-in">
                     <span class="relative flex h-2 w-2">
@@ -165,10 +169,10 @@
                 <!-- Главный заголовок и описание -->
                 <div class="max-w-4xl">
                     <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-                        Создаю цифровые продукты, которые <span class="bg-gradient-to-r from-brand-indigo via-brand-violet to-brand-indigo bg-clip-text text-transparent">меняют правила игры</span>
+                        Создаем цифровые продукты, которые <span class="bg-gradient-to-r from-brand-indigo via-brand-violet to-brand-indigo bg-clip-text text-transparent">меняют правила игры</span>
                     </h1>
                     <p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl leading-relaxed mb-8">
-                        Привет, я Ян Воронков. Разрабатываю и проектирую интерактивные интерфейсы, мобильные приложения и адаптивные сайты премиум-класса, совмещая эстетику и высокие технологии.
+                        Разрабатываем и проектируем интерактивные интерфейсы, мобильные приложения и адаптивные сайты, совмещая эстетику и высокие технологии.
                     </p>
 
                     <!-- Кнопки призыва к действию (CTA) -->
@@ -193,23 +197,23 @@
                     </div>
                     <div class="p-6 md:p-8 rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card hover:border-brand-indigo/40 dark:hover:border-brand-indigo/40 transition-all duration-300 glow-hover">
                         <div class="font-mono text-3xl md:text-4xl font-bold text-brand-indigo mb-2">7+</div>
-                        <div class="text-xs uppercase tracking-wider text-neutral-500 font-mono">Лет опыта в дизайне</div>
+                        <div class="text-xs uppercase tracking-wider text-neutral-500 font-mono">Лет опыта в разработке</div>
                     </div>
                     <div class="p-6 md:p-8 rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card hover:border-brand-indigo/40 dark:hover:border-brand-indigo/40 transition-all duration-300 glow-hover">
-                        <div class="font-mono text-3xl md:text-4xl font-bold text-brand-indigo mb-2">100%</div>
+                        <div class="font-mono text-3xl md:text-4xl font-bold text-brand-indigo mb-2">99%</div>
                         <div class="text-xs uppercase tracking-wider text-neutral-500 font-mono">Довольных клиентов</div>
                     </div>
                     <div class="p-6 md:p-8 rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card hover:border-brand-indigo/40 dark:hover:border-brand-indigo/40 transition-all duration-300 glow-hover">
-                        <div class="font-mono text-3xl md:text-4xl font-bold text-brand-indigo mb-2">&lt; 30м</div>
-                        <div class="text-xs uppercase tracking-wider text-neutral-500 font-mono">Среднее время ответа</div>
+                        <div class="font-mono text-3xl md:text-4xl font-bold text-brand-indigo mb-2">100+</div>
+                        <div class="text-xs uppercase tracking-wider text-neutral-500 font-mono">Проектов реализовано</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Раздел Обо мне (Bento Grid) -->
-        <section id="about" class="py-20 bg-neutral-100/40 dark:bg-neutral-900/40 border-y border-light-border dark:border-dark-border transition-colors duration-300">
-            <div class="max-w-7xl mx-auto px-6">
+        <section id="about" class="py-20 bg-brand-violet/[0.02] dark:bg-brand-violet/[0.015] border-y border-light-border dark:border-dark-border transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="mb-12">
                     <span class="text-xs font-mono font-bold tracking-widest text-brand-indigo uppercase block">Обо мне</span>
                     <h2 class="text-3xl md:text-5xl font-bold tracking-tight mt-2">Философия & Подход</h2>
@@ -219,9 +223,9 @@
                     <!-- Основная карточка философии -->
                     <div class="md:col-span-2 p-8 md:p-10 rounded-3xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card flex flex-col justify-between hover:border-brand-indigo/30 transition-all duration-300 glow-hover">
                         <div>
-                            <h3 class="text-xl md:text-2xl font-bold mb-4 font-mono">Моя цель</h3>
+                            <h3 class="text-xl md:text-2xl font-bold mb-4 font-mono">Наша цель</h3>
                             <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed text-base md:text-lg">
-                                Я помогаю брендам выделяться за счет чистого, продуманного дизайна и безупречного кода. Мой подход исключает компромиссы между эстетикой и функциональностью. Каждый пиксель, анимация и строчка кода работают на одну цель — решать задачи бизнеса и приносить удовольствие пользователю.
+                                Помогаем с реализацией удобных текхнических решений и продуманного дизайна. Мой подход исключает компромиссы между эстетикой и функциональностью. Каждый пиксель, анимация и строчка кода работают на одну цель — решать задачи бизнеса и приносить удовольствие пользователю.
                             </p>
                         </div>
                         <div class="mt-8 flex flex-wrap gap-2">
@@ -263,7 +267,7 @@
 
         <!-- Направления работы (Services Section) -->
         <section id="services" class="py-20">
-            <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="mb-12">
                     <span class="text-xs font-mono font-bold tracking-widest text-brand-indigo uppercase block">Услуги</span>
                     <h2 class="text-3xl md:text-5xl font-bold tracking-tight mt-2">Направления работы</h2>
@@ -345,8 +349,8 @@
         </section>
 
         <!-- Кейсы / Проекты (Selected Projects) -->
-        <section id="projects" class="py-20 bg-neutral-100/40 dark:bg-neutral-900/40 border-y border-light-border dark:border-dark-border transition-colors duration-300">
-            <div class="max-w-7xl mx-auto px-6">
+        <section id="projects" class="hidden py-20 bg-neutral-100/40 dark:bg-neutral-900/40 border-y border-light-border dark:border-dark-border transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                     <div>
                         <span class="text-xs font-mono font-bold tracking-widest text-brand-indigo uppercase block">Кейсы</span>
@@ -439,9 +443,288 @@
             </div>
         </section>
 
+        <!-- Порядок заказа и оплаты (Order Flow Section) -->
+        <section id="order-flow" class="py-20 bg-brand-indigo/[0.02] dark:bg-brand-indigo/[0.015] border-y border-light-border dark:border-dark-border transition-colors duration-300 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 relative">
+                <div class="mb-16 text-center">
+                    <span class="text-xs font-mono font-bold tracking-widest text-brand-indigo uppercase block">Процесс</span>
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mt-2">Порядок заказа и оплаты</h2>
+                </div>
+
+                <div id="timeline-container" class="relative">
+                    <!-- Единая линия таймлайна (фоновая) для мобильных и десктопов -->
+                    <div id="timeline-line" class="absolute left-[20px] md:left-1/2 w-0.5 bg-neutral-200 dark:bg-neutral-800 transform -translate-x-1/2 -z-10" aria-hidden="true">
+                        <!-- Активная линия прогресса (заполняется при прокрутке) -->
+                        <div id="timeline-progress" class="w-full h-0 bg-gradient-to-b from-brand-indigo to-brand-violet transition-all duration-75 origin-top"></div>
+                    </div>
+
+                    <div class="space-y-12 md:space-y-0">
+                        <!-- Шаг 1 -->
+                        <div class="timeline-step-row grid grid-cols-[48px_1fr] md:grid-cols-[1fr_120px_1fr] items-center w-full relative md:py-10">
+                            <!-- Левая часть (Десктоп: Карточка, Мобилка: скрыто) -->
+                            <div class="hidden md:block text-right pr-8">
+                                <div class="timeline-card p-6 rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card hover:border-brand-indigo/40 dark:hover:border-brand-indigo/40 transition-all duration-300 glow-hover relative inline-block text-left w-full">
+                                    <div class="absolute top-1/2 -right-2 transform -translate-y-1/2 w-4 h-4 rotate-45 border-t border-r border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card"></div>
+                                    <h3 class="text-lg font-bold mb-2 text-neutral-800 dark:text-neutral-100">Выбор услуги</h3>
+                                    <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                        Выберите интересующую вас услугу в разделе «Наши услуги» выше на этой странице.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Центр (Кружок и текст) -->
+                            <div class="flex items-center justify-center relative h-full">
+                                <div class="timeline-dot w-10 h-10 md:w-12 h-12 rounded-full border-2 border-neutral-300 dark:border-neutral-700 bg-light-card dark:bg-dark-card text-neutral-400 flex items-center justify-center shrink-0 transition-all duration-300 z-10" aria-label="Шаг 1">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                    </svg>
+                                </div>
+                                <span class="timeline-step-text hidden md:block text-[15px] font-mono font-bold tracking-widest text-neutral-400 transition-colors duration-300 absolute left-[calc(50%+42px)] whitespace-nowrap">ШАГ 1</span>
+                            </div>
+ 
+                            <!-- Правая часть (Десктоп: пусто, Мобилка: Карточка) -->
+                            <div class="pl-4 md:pl-0">
+                                <div class="timeline-card md:hidden p-5 rounded-xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                                    <span class="text-[10px] font-mono font-bold text-brand-indigo uppercase tracking-wider block mb-1">Шаг 1</span>
+                                    <h3 class="text-base font-bold mb-1 text-neutral-800 dark:text-neutral-100">Выбор услуги</h3>
+                                    <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                        Выберите интересующую вас услугу в разделе «Наши услуги» выше на этой странице.
+                                    </p>
+                                </div>
+                                <div class="hidden md:block"></div>
+                            </div>
+                        </div>
+ 
+                        <!-- Шаг 2 -->
+                        <div class="timeline-step-row grid grid-cols-[48px_1fr] md:grid-cols-[1fr_120px_1fr] items-center w-full relative md:py-10">
+                            <!-- Левая часть (Десктоп: пусто, Мобилка: скрыто) -->
+                            <div class="hidden md:block"></div>
+ 
+                            <!-- Центр (Кружок и текст) -->
+                            <div class="flex items-center justify-center relative h-full">
+                                <div class="timeline-dot w-10 h-10 md:w-12 h-12 rounded-full border-2 border-neutral-300 dark:border-neutral-700 bg-light-card dark:bg-dark-card text-neutral-400 flex items-center justify-center shrink-0 transition-all duration-300 z-10" aria-label="Шаг 2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                                    </svg>
+                                </div>
+                                <span class="timeline-step-text hidden md:block text-[15px] font-mono font-bold tracking-widest text-neutral-400 transition-colors duration-300 absolute right-[calc(50%+42px)] whitespace-nowrap">ШАГ 2</span>
+                            </div>
+ 
+                            <!-- Правая часть (Десктоп: Карточка, Мобилка: Карточка) -->
+                            <div class="pl-4 md:pl-8">
+                                <div class="timeline-card p-6 rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card hover:border-brand-indigo/40 dark:hover:border-brand-indigo/40 transition-all duration-300 glow-hover relative w-full text-left">
+                                    <div class="hidden md:block absolute top-1/2 -left-2 transform -translate-y-1/2 w-4 h-4 rotate-45 border-b border-l border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card"></div>
+                                    <span class="md:hidden text-[10px] font-mono font-bold text-brand-violet uppercase tracking-wider block mb-1">Шаг 2</span>
+                                    <h3 class="text-lg font-bold mb-2 text-neutral-800 dark:text-neutral-100">Оставьте заявку</h3>
+                                    <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                        Нажмите «Оставить заявку» и заполните ваши контактные данные, либо напишите мне напрямую в Telegram.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+ 
+                        <!-- Шаг 3 -->
+                        <div class="timeline-step-row grid grid-cols-[48px_1fr] md:grid-cols-[1fr_120px_1fr] items-center w-full relative md:py-10">
+                            <!-- Левая часть (Десктоп: Карточка, Мобилка: скрыто) -->
+                            <div class="hidden md:block text-right pr-8">
+                                <div class="timeline-card p-6 rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card hover:border-brand-indigo/40 dark:hover:border-brand-indigo/40 transition-all duration-300 glow-hover relative inline-block text-left w-full">
+                                    <div class="absolute top-1/2 -right-2 transform -translate-y-1/2 w-4 h-4 rotate-45 border-t border-r border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card"></div>
+                                    <h3 class="text-lg font-bold mb-2 text-neutral-800 dark:text-neutral-100">Согласование условий</h3>
+                                    <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                        Я свяжусь с вами для подробного согласования стоимости услуг, технического задания и сроков.
+                                    </p>
+                                </div>
+                            </div>
+ 
+                            <!-- Центр (Кружок и текст) -->
+                            <div class="flex items-center justify-center relative h-full">
+                                <div class="timeline-dot w-10 h-10 md:w-12 h-12 rounded-full border-2 border-neutral-300 dark:border-neutral-700 bg-light-card dark:bg-dark-card text-neutral-400 flex items-center justify-center shrink-0 transition-all duration-300 z-10" aria-label="Шаг 3">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                    </svg>
+                                </div>
+                                <span class="timeline-step-text hidden md:block text-[15px] font-mono font-bold tracking-widest text-neutral-400 transition-colors duration-300 absolute left-[calc(50%+42px)] whitespace-nowrap">ШАГ 3</span>
+                            </div>
+ 
+                            <!-- Правая часть (Десктоп: пусто, Мобилка: Карточка) -->
+                            <div class="pl-4 md:pl-0">
+                                <div class="timeline-card md:hidden p-5 rounded-xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card">
+                                    <span class="text-[10px] font-mono font-bold text-brand-indigo uppercase tracking-wider block mb-1">Шаг 3</span>
+                                    <h3 class="text-base font-bold mb-1 text-neutral-800 dark:text-neutral-100">Согласование условий</h3>
+                                    <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                        Я свяжусь с вами для подробного согласования стоимости услуг, технического задания и сроков.
+                                    </p>
+                                </div>
+                                <div class="hidden md:block"></div>
+                            </div>
+                        </div>
+ 
+                        <!-- Шаг 4 -->
+                        <div class="timeline-step-row grid grid-cols-[48px_1fr] md:grid-cols-[1fr_120px_1fr] items-center w-full relative md:py-10">
+                            <!-- Левая часть (Десктоп: пусто, Мобилка: скрыто) -->
+                            <div class="hidden md:block"></div>
+ 
+                            <!-- Центр (Кружок и текст) -->
+                            <div class="flex items-center justify-center relative h-full">
+                                <div class="timeline-dot w-10 h-10 md:w-12 h-12 rounded-full border-2 border-neutral-300 dark:border-neutral-700 bg-light-card dark:bg-dark-card text-neutral-400 flex items-center justify-center shrink-0 transition-all duration-300 z-10" aria-label="Шаг 4">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                                    </svg>
+                                </div>
+                                <span class="timeline-step-text hidden md:block text-[15px] font-mono font-bold tracking-widest text-neutral-400 transition-colors duration-300 absolute right-[calc(50%+42px)] whitespace-nowrap">ШАГ 4</span>
+                            </div>
+
+                            <!-- Правая часть (Десктоп: Карточка, Мобилка: Карточка) -->
+                            <div class="pl-4 md:pl-8">
+                                <div class="timeline-card p-6 rounded-2xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card hover:border-brand-indigo/40 dark:hover:border-brand-indigo/40 transition-all duration-300 glow-hover relative w-full text-left">
+                                    <div class="hidden md:block absolute top-1/2 -left-2 transform -translate-y-1/2 w-4 h-4 rotate-45 border-b border-l border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card"></div>
+                                    <span class="md:hidden text-[10px] font-mono font-bold text-brand-violet uppercase tracking-wider block mb-1">Шаг 4</span>
+                                    <h3 class="text-lg font-bold mb-2 text-neutral-800 dark:text-neutral-100">Выставление счета и оплата</h3>
+                                    <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                        Вы получаете ссылку на оплату на почту или в мессенджер. Оплата производится банковской картой или через систему ЕРИП.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Способы оплаты & Возврат (Payment Info Section) -->
+        <section id="payment-info" class="py-20 border-b border-light-border dark:border-dark-border transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 md:px-6">
+                <div class="mb-16 text-center">
+                    <span class="text-xs font-mono font-bold tracking-widest text-brand-indigo uppercase block">Оплата & Безопасность</span>
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mt-2">Способы оплаты и возврат</h2>
+                </div>
+
+                <div class="flex flex-col gap-12 max-w-4xl mx-auto">
+                    <!-- Доступные способы оплаты -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold mb-6 font-mono text-neutral-800 dark:text-neutral-200">Доступные способы оплаты</h3>
+                        
+                        <!-- Способ 1 -->
+                        <div class="border border-light-border dark:border-dark-border rounded-2xl bg-light-card dark:bg-dark-card overflow-hidden transition-all duration-300">
+                            <button class="accordion-header w-full px-6 py-5 flex items-center justify-between text-left font-semibold text-neutral-800 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-colors focus:outline-none" aria-expanded="false">
+                                <span>Оплата по ссылке банковской карточкой</span>
+                                <svg class="accordion-icon w-5 h-5 text-neutral-500 flex-shrink-0 ml-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m-8-8h16"/>
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="px-6 pb-6 pt-2 text-sm text-neutral-600 dark:text-neutral-400 space-y-4 border-t border-neutral-100 dark:border-neutral-800/60">
+                                    <p>Для этого вам необходимо:</p>
+                                    <ol class="list-decimal pl-5 space-y-2">
+                                        <li>Заказать интересующую вас услугу любым удобным способом: позвонить по телефону: <a href="tel:+375296699923" class="text-brand-indigo font-semibold hover:underline">+375 (29) 669-99-23</a> или написать на e-mail: <a href="mailto:info@yanvoronkov.ru" class="text-brand-indigo font-semibold hover:underline">info@yanvoronkov.ru</a>.</li>
+                                        <li>В течение 10 минут мы вышлем на ваш e-mail ссылку для оплаты услуги. Кликнув по ссылке, вы перейдете на специальную защищенную платежную страницу процессинговой системы <strong>bePaid</strong>.</li>
+                                        <li>На платежной странице будет указан номер заказа и сумма платежа. Для оплаты введите свои карточные данные и подтвердите платеж, нажав кнопку «Оплатить».</li>
+                                    </ol>
+                                    <p>
+                                        Если ваша карта поддерживает технологию 3-D Secure, системой вам будет предложено пройти стандартную одноминутную процедуру проверки владельца карты на странице вашего банка.
+                                    </p>
+                                    <p>
+                                        После проведения платежа на указанный вами электронный адрес придет подтверждение оплаты. Просим вас сохранять эти данные. Мы принимаем платежи по следующим банковским картам: <strong>Visa, Visa Electron, MasterCard, Maestro, Белкарт</strong>.
+                                    </p>
+                                    <p>
+                                        Платежи по банковским картам осуществляются через систему электронных платежей <strong>bePaid</strong>. Платежная страница системы bePaid отвечает всем требованиям безопасности передачи данных (PCI DSS Level 1). Все конфиденциальные данные хранятся в зашифрованном виде.
+                                    </p>
+                                    <div class="pt-3 border-t border-neutral-100 dark:border-neutral-800/40">
+                                        <a href="#refund-policy" class="text-xs text-brand-indigo font-mono font-semibold hover:underline flex items-center">
+                                            Условия возврата
+                                            <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Способ 2 -->
+                        <div class="border border-light-border dark:border-dark-border rounded-2xl bg-light-card dark:bg-dark-card overflow-hidden transition-all duration-300">
+                            <button class="accordion-header w-full px-6 py-5 flex items-center justify-between text-left font-semibold text-neutral-800 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-colors focus:outline-none" aria-expanded="false">
+                                <span>Оплата услуги на сайте банковской карточкой</span>
+                                <svg class="accordion-icon w-5 h-5 text-neutral-500 flex-shrink-0 ml-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m-8-8h16"/>
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="px-6 pb-6 pt-2 text-sm text-neutral-600 dark:text-neutral-400 space-y-4 border-t border-neutral-100 dark:border-neutral-800/60">
+                                    <p>
+                                        Вы можете оплатить согласованные услуги непосредственно через платежную форму на сайте (в процессе интеграции). После нажатия кнопки оплаты вы перейдете на специальную защищенную платежную страницу процессинговой системы <strong>bePaid</strong>.
+                                    </p>
+                                    <p>
+                                        На платежной странице будет указан номер заказа и сумма платежа. Для оплаты введите свои карточные данные и подтвердите платеж, нажав кнопку «Оплатить».
+                                    </p>
+                                    <p>
+                                        Мы принимаем платежи по следующим банковским картам: <strong>Visa, Visa Electron, MasterCard, Maestro, Белкарт</strong>. Оплата осуществляется через систему электронных платежей bePaid, отвечающую всем стандартам безопасности передачи данных (PCI DSS Level 1).
+                                    </p>
+                                    <div class="pt-3 border-t border-neutral-100 dark:border-neutral-800/40">
+                                        <a href="#refund-policy" class="text-xs text-brand-indigo font-mono font-semibold hover:underline flex items-center">
+                                            Условия возврата
+                                            <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Способ 3 -->
+                        <div class="border border-light-border dark:border-dark-border rounded-2xl bg-light-card dark:bg-dark-card overflow-hidden transition-all duration-300">
+                            <button class="accordion-header w-full px-6 py-5 flex items-center justify-between text-left font-semibold text-neutral-800 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-colors focus:outline-none" aria-expanded="false">
+                                <span>Оплата через систему «Расчет» (ЕРИП)</span>
+                                <svg class="accordion-icon w-5 h-5 text-neutral-500 flex-shrink-0 ml-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m-8-8h16"/>
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="px-6 pb-6 pt-2 text-sm text-neutral-600 dark:text-neutral-400 space-y-4 border-t border-neutral-100 dark:border-neutral-800/60">
+                                    <p>
+                                        Оплатить услуги через систему «Расчет» (ЕРИП) можно в любом удобном для вас пункте банковского обслуживания: интернет-банке, мобильном банкинге, инфокиоске, кассе банков, банкомате и т.д.
+                                    </p>
+                                    <p>Совершить оплату можно с использованием наличных денежных средств, электронных денег и банковских платежных карточек.</p>
+                                    <p><strong>Для проведения платежа необходимо:</strong></p>
+                                    <ol class="list-decimal pl-5 space-y-2">
+                                        <li>Выбрать пункт «Система “Расчет” (ЕРИП)».</li>
+                                        <li>Выбрать последовательно вкладки: <strong>IT-услуги</strong> -> <strong>Разработка ПО и веб-сайтов</strong>.</li>
+                                        <li>Найти получателя услуг: <strong>Самозанятый Воронков Я.В.</strong></li>
+                                        <li>Ввести номер вашего счета / заказа.</li>
+                                        <li>Проверить корректность информации (ФИО плательщика, сумма) и совершить платеж.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Правая колонка: Правила отмены и возврата -->
+                    <div id="refund-policy" class="p-6 md:p-8 rounded-3xl border-2 border-dashed border-brand-indigo/30 dark:border-brand-indigo/20 bg-light-card dark:bg-dark-card shadow-lg shadow-neutral-100/50 dark:shadow-none transition-all duration-300 hover:border-brand-indigo/50">
+                        <h3 class="text-xl font-bold mb-4 font-mono text-neutral-800 dark:text-neutral-200">Отмена и возврат средств</h3>
+                        <div class="space-y-4 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                            <p>
+                                В случае, если Вам не была оказана оплаченная услуга, Вам необходимо обратиться по контактным данным на сайте. Менеджер обязательно вас проконсультирует.
+                            </p>
+                            
+                            <div class="p-4 rounded-xl bg-brand-indigo/5 border border-brand-indigo/20 text-neutral-800 dark:text-neutral-300 font-medium">
+                                Если услуга была оплачена банковской картой через сайт/ссылку, то возврат осуществляется исключительно на ту карту, с которой была произведена оплата. Срок поступления средств на карту — от 1 до 30 дней с момента осуществления возврата.
+                            </div>
+
+                            <p>
+                                Возврат денежных средств за оплаченную услугу предусмотрен в случае некачественного оказания услуги или если заказчик отказался от услуги до начала выполнения заказа Исполнителем.
+                            </p>
+                            <p>
+                                Для возврата средств напишите заявление в свободной форме с указанием основания для возврата, реквизитов (номер карт-счета в формате IBAN, номер транзитного счета) и контактных данных. К заявлению приложите фото/сканы платежных документов и отправьте на e-mail: <a href="mailto:info@yanvoronkov.ru" class="text-brand-indigo font-semibold hover:underline">info@yanvoronkov.ru</a> (копия на <a href="mailto:yan.voronkov@gmail.com" class="text-brand-indigo font-semibold hover:underline">yan.voronkov@gmail.com</a>).
+                            </p>
+                            <p>
+                                Возврат средств производится в течение 30 дней с момента получения заявления Исполнителем.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Обратная связь / Контакты (Contact Section) -->
-        <section id="contact" class="py-20 relative">
-            <div class="max-w-7xl mx-auto px-6">
+        <section id="contact" class="py-20 bg-gradient-to-b from-transparent to-brand-indigo/[0.02] dark:to-brand-indigo/[0.015] relative">
+            <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <!-- Текст контактов -->
                     <div>
@@ -498,6 +781,11 @@
                                 <textarea required id="form-desc" rows="4" class="w-full px-4 py-3 rounded-xl border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg focus:outline-none focus:border-brand-indigo text-sm resize-none" placeholder="Расскажите немного о вашем проекте..."></textarea>
                             </div>
 
+                            <!-- Cloudflare Turnstile CAPTCHA -->
+                            <div class="flex justify-start my-2">
+                                <div id="turnstile-container" data-sitekey="%VITE_TURNSTILE_SITEKEY%"></div>
+                            </div>
+
                             <button type="submit" class="w-full py-4 px-6 rounded-xl bg-brand-indigo text-white font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-indigo/20">
                                 Отправить заявку
                             </button>
@@ -517,24 +805,403 @@
     </div>
 
     <!-- Футер (Подвал) -->
-    <footer class="border-t border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card py-12 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
-            <div class="flex items-center space-x-3 mb-6 md:mb-0">
-                <div class="w-8 h-8 rounded-lg bg-brand-indigo flex items-center justify-center text-white font-mono font-bold text-sm" aria-hidden="true">ЯВ</div>
-                <span class="font-bold text-sm">Ян Воронков</span>
+    <footer class="border-t border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card py-16 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <!-- Верхняя часть футера (Юридическая информация и контакты) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                <!-- Левый столбец (Реквизиты) -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-indigo flex items-center justify-center text-white font-mono font-bold text-sm" aria-hidden="true">ЯВ</div>
+                        <span class="font-bold text-base text-neutral-800 dark:text-neutral-100">Ян Воронков</span>
+                    </div>
+                    <p class="text-sm font-semibold text-neutral-800 dark:text-neutral-200">Самозанятый Воронков Ян Вячеславович</p>
+                    <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                        УНП AA0846534 зарегистрирован 16.08.2023 г.<br>
+                        Инспекция Министерства по налогам и сборам Республики Беларусь <br> по Фрунзенскому району г. Минска № 1.
+                    </p>
+                </div>
+
+                <!-- Правый столбец (Адрес и Контакты) -->
+                <div class="space-y-4 text-xs text-neutral-500 dark:text-neutral-400">
+                    <h4 class="text-sm font-bold uppercase tracking-wider font-mono text-neutral-800 dark:text-neutral-300">Адрес регистрации</h4>
+                    <p class="leading-relaxed">
+                        Республика Беларусь, 220136, г. Минск, ул. Одинцова, 115 кв. 22
+                    </p>
+                    <div class="pt-2 space-y-2">
+                        <p><strong>E-mail:</strong> <a href="mailto:info@yanvoronkov.ru" class="hover:text-brand-indigo transition-all">info@yanvoronkov.ru</a> / <a href="mailto:yan.voronkov@gmail.com" class="hover:text-brand-indigo transition-all">yan.voronkov@gmail.com</a></p>
+                        <p><strong>Телефон (Viber, Telegram):</strong> <a href="tel:+375296699923" class="hover:text-brand-indigo transition-all">+375 (29) 669-99-23</a></p>
+                    </div>
+                </div>
             </div>
 
-            <nav class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0 text-sm text-neutral-500" aria-label="Меню в подвале">
-                <a href="#about" class="hover:text-brand-indigo transition-all">Обо мне</a>
-                <a href="#services" class="hover:text-brand-indigo transition-all">Услуги</a>
-                <a href="#projects" class="hover:text-brand-indigo transition-all">Проекты</a>
-            </nav>
+            <!-- Разделитель -->
+            <div class="border-t border-light-border dark:border-dark-border pt-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+                <!-- Кнопки оферты и политики -->
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <button id="btn-open-offer" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider border border-light-border dark:border-dark-border rounded-xl text-neutral-600 dark:text-neutral-400 hover:border-brand-indigo dark:hover:border-brand-indigo hover:text-brand-indigo dark:hover:text-brand-indigo transition-all cursor-pointer">Договор оферты</button>
+                    <button id="btn-open-privacy" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider border border-light-border dark:border-dark-border rounded-xl text-neutral-600 dark:text-neutral-400 hover:border-brand-indigo dark:hover:border-brand-indigo hover:text-brand-indigo dark:hover:text-brand-indigo transition-all cursor-pointer">Политика конфиденциальности</button>
+                </div>
 
-            <div class="text-xs text-neutral-400 font-mono">
-                © <span id="current-year"></span> YAN VORONKOV. ALL RIGHTS RESERVED.
+                <!-- Логотипы платежных систем -->
+                <div class="flex flex-wrap items-center justify-center gap-4 transition-all duration-300">
+                    <img src="/logo_payments.png" alt="Способы оплаты: Visa, Mastercard, Белкарт, bePaid, Apple Pay, Google Pay, Webpay" class="h-8 md:h-10 w-auto object-contain opacity-85 dark:opacity-75 hover:opacity-100 dark:hover:opacity-100 transition-opacity duration-300">
+                </div>
+            </div>
+
+            <!-- Нижняя строка копирайта -->
+            <div class="mt-8 border-t border-light-border/40 dark:border-dark-border/40 pt-6 text-center text-[10px] text-neutral-400 font-mono">
+                © <span id="current-year"></span> YAN VORONKOV • InetSkills. ALL RIGHTS RESERVED.
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно: Договор оферты -->
+    <div id="modal-offer" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-sm bg-black/40 dark:bg-black/60" aria-modal="true" role="dialog">
+        <!-- Внутреннее окно -->
+        <div class="w-full max-w-4xl max-h-[85vh] flex flex-col bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-3xl shadow-2xl transform scale-95 transition-all duration-300">
+            <!-- Заголовок -->
+            <div class="flex items-center justify-between px-6 py-5 border-b border-light-border dark:border-dark-border">
+                <div>
+                    <h3 class="text-lg md:text-xl font-bold text-neutral-900 dark:text-neutral-100">Договор об оказании услуг</h3>
+                    <p class="text-xs text-brand-indigo font-mono uppercase tracking-wider mt-0.5">Публичная оферта</p>
+                </div>
+                <button class="modal-close-btn p-2 rounded-xl text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 transition-colors" aria-label="Закрыть оферту">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Контент (скроллящийся) -->
+            <div class="flex-1 overflow-y-auto px-6 md:px-10 py-8 space-y-6 text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed custom-scrollbar">
+                <p class="italic text-neutral-500 dark:text-neutral-400">
+                    Воронков Ян Вячеславович, плательщик налога на профессиональный доход (далее — Исполнитель) настоящей публичной офертой предлагает любому физическому или юридическому лицу, а также индивидуальному предпринимателю (далее – Заказчик) заключить настоящий договор об оказании услуг на указанных ниже условиях.
+                </p>
+
+                <!-- Раздел 1 -->
+                <div class="space-y-3">
+                    <h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100 font-mono">
+                        <span class="text-brand-indigo">1.</span> Термины и определения
+                    </h4>
+                    <div class="space-y-2 pl-4 border-l-2 border-brand-indigo/20">
+                        <p><strong>1.1. Договор</strong> — настоящий договор об оказании услуг, постоянно опубликованный на сайте Исполнителя по адресу: <a href="https://www.yanvoronkov.ru/" target="_blank" class="text-brand-indigo hover:underline">https://www.yanvoronkov.ru/</a>.</p>
+                        <p><strong>1.2. Акцепт Договора</strong> — принятие публичной оферты Заказчиком на заключение Договора. Полным и безусловным акцептом Договора является осуществление Заказчиком оплаты предложенных Исполнителем услуг.</p>
+                        <p><strong>1.3. Тарифы</strong> — перечень услуг Исполнителя с ценами, указанными на сайте Исполнителя по адресу <a href="https://www.yanvoronkov.ru/" target="_blank" class="text-brand-indigo hover:underline">https://www.yanvoronkov.ru/</a>.</p>
+                    </div>
+                </div>
+
+                <!-- Раздел 2 -->
+                <div class="space-y-3">
+                    <h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100 font-mono">
+                        <span class="text-brand-indigo">2.</span> Предмет Договора
+                    </h4>
+                    <div class="space-y-2 pl-4 border-l-2 border-brand-indigo/20">
+                        <p><strong>2.1.</strong> В соответствии с Договором Заказчик поручает и оплачивает, а Исполнитель принимает на себя обязательства по оказанию Заказчику услуг, выбранных Заказчиком.</p>
+                        <p><strong>2.2.</strong> Перечень услуг содержится в Тарифах.</p>
+                        <p><strong>2.3.</strong> Заказчик соглашается, что, совершая Акцепт Договора, он подтверждает, что ознакомлен, согласен, полностью и безоговорочно принимает все условия Договора.</p>
+                    </div>
+                </div>
+
+                <!-- Раздел 3 -->
+                <div class="space-y-3">
+                    <h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100 font-mono">
+                        <span class="text-brand-indigo">3.</span> Срок действия Договора
+                    </h4>
+                    <div class="space-y-2 pl-4 border-l-2 border-brand-indigo/20">
+                        <p><strong>3.1.</strong> Договор вступает в силу со дня акцепта заказчиком и действует в течение 1 (одного) года с момента заключения Договора.</p>
+                        <p><strong>3.2.</strong> Если за 30 (тридцать) календарных дней до истечения срока Договора ни одна из Сторон не уведомит другую Сторону письменно о прекращении действия Договора, то он считается продленным на 1 (один) год. Количество продлений не ограничено.</p>
+                        <p><strong>3.3.</strong> Любая из сторон вправе расторгнуть Договор в одностороннем внесудебном порядке, предварительно уведомив об этом другую сторону не менее чем за 15 (пятнадцать) календарных дней до даты расторжения.</p>
+                        <p><strong>3.4.</strong> Уведомление может быть направлено на адрес электронной почты стороны или адрес места жительства/нахождения соответствующей стороны. При этом адресом электронной почты Исполнителя считается адрес эл. Почты, размещенный на сайте Исполнителя по адресу https://www.yanvoronkov.ru/, адресом электронной почты Заказчика — адрес, указанный им в момент оставления заявки на сайте Исполнителя.</p>
+                        <p><strong>3.5.</strong> В случае расторжения Договора по инициативе Заказчика, Исполнитель вправе удержать из уплаченной Заказчиком суммы стоимость уже оказанных услуг на момент получения уведомления о расторжении и/или фактически понесенных расходов.</p>
+                    </div>
+                </div>
+
+                <!-- Раздел 4 -->
+                <div class="space-y-3">
+                    <h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100 font-mono">
+                        <span class="text-brand-indigo">4.</span> Стоимость работ и порядок расчетов
+                    </h4>
+                    <div class="space-y-2 pl-4 border-l-2 border-brand-indigo/20">
+                        <p><strong>4.1.</strong> Стоимость услуг определяется в соответствии с Тарифами, в зависимости от выбранных Заказчиком услуг.</p>
+                        <p><strong>4.2.</strong> Оплата производится авансовым платежом в размере 100% от стоимости услуг до начала оказания услуг. Оплата производится в рублях перечислением на расчетный счет Исполнителя или платежной картой на сайте Исполнителя.</p>
+                        <p><strong>4.3.</strong> Датой оплаты считается дата поступления денежных средств Исполнителю.</p>
+                    </div>
+                </div>
+
+                <!-- Раздел 5 -->
+                <div class="space-y-3">
+                    <h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100 font-mono">
+                        <span class="text-brand-indigo">5.</span> Права и обязанности
+                    </h4>
+                    <div class="space-y-3 pl-4 border-l-2 border-brand-indigo/20">
+                        <div>
+                            <p class="font-semibold text-neutral-800 dark:text-neutral-200">5.1. Исполнитель обязуется:</p>
+                            <p class="pl-4 mt-1"><strong>5.1.1.</strong> Оказать Заказчику услуги надлежащего качества в надлежащем объеме и в согласованные Сторонами сроки.</p>
+                            <p class="pl-4"><strong>5.1.2.</strong> Обеспечить полную сохранность предоставленных Заказчиком данных, материалов, а также конфиденциальность информации, полученной им в процессе оказания услуг.</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-neutral-800 dark:text-neutral-200">5.2. Исполнитель имеет право:</p>
+                            <p class="pl-4 mt-1"><strong>5.2.1.</strong> Получать от Заказчика необходимые данные и информацию для оказания услуг и полагаться на них без дополнительной проверки.</p>
+                            <p class="pl-4"><strong>5.2.2.</strong> При необходимости привлекать к исполнению услуг сторонних консультантов, специалистов и экспертов по своему усмотрению.</p>
+                            <p class="pl-4"><strong>5.2.3.</strong> Приостанавливать оказание услуг до момента предоставления Заказчиком данных и информации, необходимых для оказания услуг.</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-neutral-800 dark:text-neutral-200">5.3. Заказчик обязуется:</p>
+                            <p class="pl-4 mt-1"><strong>5.3.1.</strong> Предоставить Исполнителю любые необходимые и достоверные данные и информацию для оказания услуг.</p>
+                            <p class="pl-4"><strong>5.3.2.</strong> Своевременно и полностью оплатить услуги Исполнителя.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Раздел 6 -->
+                <div class="space-y-3">
+                    <h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100 font-mono">
+                        <span class="text-brand-indigo">6.</span> Порядок приемки услуг
+                    </h4>
+                    <div class="space-y-2 pl-4 border-l-2 border-brand-indigo/20">
+                        <p><strong>6.1.</strong> По окончании оказания услуг Исполнитель, при необходимости, направляет Заказчику акт оказанных услуг.</p>
+                        <p><strong>6.2.</strong> Заказчик обязан рассмотреть и подписать акт оказанных услуг, либо направить мотивированный отказ от их подписания в течение не более 2 (двух) дней с момента его направления.</p>
+                        <p><strong>6.3.</strong> В случае, если Заказчик не подписал акт оказанный срок и не направил мотивированный отказ от его подписания в срок, указанный в п. 6.2 Договора, акт оказанных услуг считается подписанным, услуги принятыми Заказчиком без каких-либо возражений.</p>
+                    </div>
+                </div>
+
+                <!-- Раздел 7 -->
+                <div class="space-y-3">
+                    <h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100 font-mono">
+                        <span class="text-brand-indigo">7.</span> Иные положения
+                    </h4>
+                    <div class="space-y-2 pl-4 border-l-2 border-brand-indigo/20">
+                        <p><strong>7.1.</strong> Акцептуя Договор, Заказчик дает согласие на использование информации о себе, о факте получения услуг у Исполнителя, в том числе в сети Интернет, в рекламных материалах.</p>
+                        <p><strong>7.2.</strong> Если Заказчик оставляет отзыв о приобретенных услугах в соцсетях Исполнителя или на его сайте, он дает согласие на обработку, в том числе путем распространения, соответствующих персональных данных в отзывах.</p>
+                        <p><strong>7.3.</strong> Споры и разногласия по вопросам исполнения Договора разрешаются на переговорах.</p>
+                        <p><strong>7.4.</strong> Если на переговорах стороны не смогут достичь согласия, спор передается в суд по месту нахождения Исполнителя.</p>
+                        <p><strong>7.5.</strong> Вся переписка, согласования, принятие услуг по Договору осуществляемые посредством электронной почты признаются Сторонами официальной перепиской, надлежащим согласованием, принятием работ и может быть использована в качестве доказательства в суде. Скан-копии документов, полученных посредством электронной почты, приравниваются к оригиналам.</p>
+                    </div>
+                </div>
+
+                <!-- Реквизиты -->
+                <div class="pt-6 border-t border-light-border dark:border-dark-border space-y-4">
+                    <h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100 font-mono">Реквизиты Исполнителя</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-5 rounded-2xl border border-light-border dark:border-dark-border bg-neutral-50/50 dark:bg-neutral-900/30">
+                            <span class="text-xs font-mono text-neutral-400 uppercase block mb-1">Исполнитель</span>
+                            <span class="font-bold text-neutral-800 dark:text-neutral-200 block mb-2">Воронков Ян Вячеславович</span>
+                            <span class="text-xs font-mono text-neutral-400 block">УНП AA0846534</span>
+                            <span class="text-xs text-neutral-500 mt-1 block">Плательщик налога на профессиональный доход</span>
+                        </div>
+                        <div class="p-5 rounded-2xl border border-light-border dark:border-dark-border bg-neutral-50/50 dark:bg-neutral-900/30">
+                            <span class="text-xs font-mono text-neutral-400 uppercase block mb-1">Контакты и адрес</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">220136, г. Минск, ул. Одинцова, 115, кв.22</p>
+                            <span class="text-xs font-mono text-neutral-400 block">Email:</span>
+                            <a href="mailto:yan.voronkov@gmail.com" class="text-sm text-brand-indigo font-semibold hover:underline">yan.voronkov@gmail.com</a>
+                        </div>
+                        <div class="p-5 md:col-span-2 rounded-2xl border border-light-border dark:border-dark-border bg-neutral-50/50 dark:bg-neutral-900/30">
+                            <span class="text-xs font-mono text-neutral-400 uppercase block mb-1">Банковские реквизиты</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 text-sm">
+                                <div>
+                                    <span class="text-xs text-neutral-400 block">IBAN:</span>
+                                    <span class="font-mono font-semibold text-neutral-800 dark:text-neutral-200">BY15UNBS30145820000274050933</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-neutral-400 block">БИК / Код банка:</span>
+                                    <span class="font-mono font-semibold text-neutral-800 dark:text-neutral-200">UNBSBY2X</span>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <span class="text-xs text-neutral-400 block">Банк получателя:</span>
+                                    <span class="font-semibold text-neutral-800 dark:text-neutral-200">ЗАО «БСБ Банк»</span>
+                                </div>
+                                <div class="sm:col-span-2 border-t border-light-border dark:border-dark-border/40 pt-2 text-xs">
+                                    <span class="text-xs text-neutral-400 block">Корреспондентский счет:</span>
+                                    <span class="font-mono text-neutral-600 dark:text-neutral-400">BY12 NBRB 3200 0017 5001 3000 0000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Подвал модалки (фиксированный снизу) -->
+            <div class="px-6 py-4 border-t border-light-border dark:border-dark-border flex justify-end bg-neutral-50/50 dark:bg-neutral-900/30 rounded-b-3xl">
+                <button class="modal-close-btn px-5 py-2.5 bg-dark-bg text-light-bg dark:bg-light-bg dark:text-dark-bg font-semibold text-sm rounded-xl hover:opacity-90 transition-all cursor-pointer">
+                    Закрыть договор
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Политика конфиденциальности -->
+    <div id="modal-privacy" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-sm bg-black/40 dark:bg-black/60" aria-modal="true" role="dialog">
+        <!-- Внутреннее окно -->
+        <div class="w-full max-w-4xl max-h-[85vh] flex flex-col bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-3xl shadow-2xl transform scale-95 transition-all duration-300">
+            <!-- Заголовок -->
+            <div class="flex items-center justify-between px-6 py-5 border-b border-light-border dark:border-dark-border">
+                <div>
+                    <h3 class="text-lg md:text-xl font-bold text-neutral-900 dark:text-neutral-100">Политика конфиденциальности</h3>
+                    <p class="text-xs text-brand-indigo font-mono uppercase tracking-wider mt-0.5">Согласие на обработку персональных данных</p>
+                </div>
+                <button class="modal-close-btn p-2 rounded-xl text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 transition-colors" aria-label="Закрыть политику">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Контент (скроллящийся) -->
+            <div class="flex-1 overflow-y-auto px-6 md:px-10 py-8 space-y-6 text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed custom-scrollbar">
+                <p>
+                    Настоящая Политика конфиденциальности (далее – Политика) разработана во исполнение требований Закона Республики Беларусь от 07.05.2021 №99-З «О защите персональных данных» (далее — Закон №99-З) и «Положения о порядке предварительной идентификации пользователей интернет-ресурса, сетевого издания», утвержденного Постановлением Совета Министров Республики Беларусь 23.11.2018 №850.
+                </p>
+
+                <p>
+                    Пользователем является физическое или юридическое лицо, пользующееся сайтом или оставившее на сайте заявку на разработку программного обеспечения (сайт, мобильное приложение и т.п). В силу Закона №99-З владелец Сайта является оператором – лицом, осуществляющим обработку персональных данных самостоятельно (далее – Оператор). При этом Оператор вправе привлекать третьих лиц в качестве уполномоченного лица для обработки персональных данных от имени оператора и в его интересах на основании соответствующего договора.
+                </p>
+
+                <p>
+                    Под персональными данными пользователей в целях, предусмотренных настоящей Политикой, подразумевается: <strong>личная информация</strong>: фамилия, имя, адрес электронной почты, номер телефона; <strong>дополнительная информация</strong>: IP-адрес, cookie, геолокация, информация о посещении Платформы, которую предоставляют сервисы статистики Yandex Metrika и Google Analytics, информация об использовании и настройках, информация об устройстве, информация из журналов регистрации событий сервера; иные данные, необходимые для полноценного взаимодействия с сайтом.
+                </p>
+
+                <p>
+                    Обработка персональных данных включает в себя любое действие или совокупность действий, совершаемые с персональными данными, включая сбор, систематизацию, хранение, изменение, использование, обезличивание, блокирование, распространение, предоставление, удаление персональных данных. Пользователь, который предоставляет свои персональные данные, дает согласие на использование этих данных работниками Оператора для коммуникации с Пользователем.
+                </p>
+
+                <p>
+                    Оператор имеет право использования персональных данных Пользователя для рекламных и информационных рассылок, а также для передачи в этих целях третьим лицам. А также Пользователь дает согласие на обработку своих персональных данных в течение срока, который определяется законодательством Республики Беларусь, Пользовательским соглашением и настоящей Политикой. Персональные данные, которые предоставляет Пользователь подлежат обработке с использованием средств автоматизации с передачей полученной информации по информационно-коммуникационным сетям и без такой передачи, без использования средств автоматизации, смешанным способом обработки персональных данных, в т.ч. передачей данных на территорию иностранного государства (трансграничная передача), в котором может не обеспечиваться должный уровень защиты персональных данных и могут быть риски для Пользователя, а также с передачей данных партнерам Сайта и т.д. Цель обработки этих данных – оказание услуг Пользователю, оказание услуг партнерами Сайта, проведение рекламных игр, конкурсов и акций, обеспечение технического контроля, обеспечение соблюдения законодательства.
+                </p>
+
+                <p>
+                    При проведении рекламных игр, конкурсов и акций, для проведения которых необходимы дополнительные персональные данные, данные могут передаваться партнерам по проведению указанных мероприятий. Переданные данные в этих случаях обрабатываются и хранятся неопределенное время в целях технического контроля, ведения статистики, налоговой и иной отчетности.
+                </p>
+
+                <p>
+                    В любое время Пользователь вправе направить письмо на электронную почту Администрации Сайта: <a href="mailto:yan.voronkov@gmail.com" class="text-brand-indigo font-semibold hover:underline">yan.voronkov@gmail.com</a> об удалении своих персональных данных. Оператор в соответствии с законодательством обеспечивает хранение данных Пользователя не менее одного года с даты получения письма Пользователя об удалении персональных данных (пункт 7 Положения о порядке предварительной идентификации пользователей…, утв. ПСМ РБ от 23.11.2018 №850). По истечении указанного срока Оператор удаляет персональные данные Пользователя, которые хранятся у Оператора. Персональные данные, переданные Операторам в соответствии с настоящей Политикой иным лицам и хранящиеся у иных лиц, не входят в зону ответственности Оператора.
+                </p>
+
+                <p>
+                    Вопросы, касающиеся обработки персональных данных, не закрепленные в настоящей Политике, регулируются законодательством Республики Беларусь. Оператор вправе по своему усмотрению изменять/дополнять условия настоящей Политики в соответствии с требованиями законодательства. Подача заявки о разработке программного обеспечения подтверждает согласие пользователя с условиями настоящей Политикой. По вопросам пользования Сайтом Пользователь вправе обращаться к Администрации Сайта на электронный адрес службы поддержки: <a href="mailto:yan.voronkov@gmail.com" class="text-brand-indigo font-semibold hover:underline">yan.voronkov@gmail.com</a>.
+                </p>
+
+                <!-- Реквизиты оператора -->
+                <div class="p-5 rounded-2xl border border-light-border dark:border-dark-border bg-neutral-50/50 dark:bg-neutral-900/30 space-y-1">
+                    <span class="text-xs font-mono text-neutral-400 uppercase block">Наименование Оператора</span>
+                    <span class="font-bold text-neutral-800 dark:text-neutral-200 block">Воронков Ян Вячеславович</span>
+                    <p class="text-sm">Плательщик налога на профессиональный доход, УНП AA0846534.</p>
+                    <p class="text-sm text-neutral-500 dark:text-neutral-400">Местонахождение: 220036, г.Минск, ул. Одинцова, 115, кв. 22.</p>
+                </div>
+
+                <!-- Таблица уполномоченных лиц (ООО ИКомЧардж) -->
+                <div class="pt-6 border-t border-light-border dark:border-dark-border space-y-4">
+                    <h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100 font-mono">Уполномоченные лица на обработку данных</h4>
+                    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+                        На основании заключенных договоров, Оператор поручает обработку персональных данных клиентов, осуществляющих покупку товаров на сайте www.yanvoronkov.ru следующим уполномоченным лицам (далее — УЛ):
+                    </p>
+
+                    <!-- Карточка УЛ -->
+                    <div class="rounded-2xl border border-light-border dark:border-dark-border bg-neutral-50/50 dark:bg-neutral-900/30 p-5 space-y-4 text-sm">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-light-border dark:border-dark-border/40 pb-3">
+                            <div>
+                                <h5 class="font-bold text-neutral-800 dark:text-neutral-200">ООО «ИКомЧардж»</h5>
+                                <span class="text-xs text-neutral-500 font-mono">УНП 191670289</span>
+                            </div>
+                            <div class="sm:text-right">
+                                <span class="text-xs text-neutral-500 block">Место нахождения:</span>
+                                <span class="text-xs font-semibold text-neutral-700 dark:text-neutral-300">Республика Беларусь, г. Минск, пр. Дзержинского, 104, офис 1801</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div>
+                                <span class="text-neutral-400 block mb-0.5">Цель обработки персональных данных:</span>
+                                <p class="text-neutral-700 dark:text-neutral-300">Обеспечение технической возможности проведения платежей с использованием банковских пластиковых карточек.</p>
+                            </div>
+                            <div>
+                                <span class="text-neutral-400 block mb-0.5">Перечень персональных данных:</span>
+                                <p class="text-neutral-700 dark:text-neutral-300 font-mono">Фамилия и имя держателя карточки, номер банковской карточки, CVC/CVV, адрес электронной почты, ID-заказа.</p>
+                            </div>
+                            <div>
+                                <span class="text-neutral-400 block mb-0.5">Перечень действий по обработке:</span>
+                                <p class="text-neutral-700 dark:text-neutral-300">Сбор, систематизация, хранение, использование, предоставление, удаление персональных данных.</p>
+                            </div>
+                            <div>
+                                <span class="text-neutral-400 block mb-0.5">Срок обработки:</span>
+                                <p class="text-neutral-700 dark:text-neutral-300 font-semibold">5 лет с момента осуществления платежа.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-3 border-t border-light-border dark:border-dark-border/40 text-[11px] italic text-neutral-500">
+                            *ООО «ИКомЧардж» после проведения оплаты направляет карт-чек на e-mail, указанный при оплате.
+                        </div>
+                    </div>
+
+                    <!-- Карточка УЛ: Cloudflare -->
+                    <div class="rounded-2xl border border-light-border dark:border-dark-border bg-neutral-50/50 dark:bg-neutral-900/30 p-5 space-y-4 text-sm mt-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-light-border dark:border-dark-border/40 pb-3">
+                            <div>
+                                <h5 class="font-bold text-neutral-800 dark:text-neutral-200">Cloudflare, Inc.</h5>
+                                <span class="text-xs text-neutral-500 font-mono">Сервис Turnstile CAPTCHA</span>
+                            </div>
+                            <div class="sm:text-right">
+                                <span class="text-xs text-neutral-500 block">Место нахождения:</span>
+                                <span class="text-xs font-semibold text-neutral-700 dark:text-neutral-300">101 Townsend St, San Francisco, CA 94107, США</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div>
+                                <span class="text-neutral-400 block mb-0.5">Цель обработки персональных данных:</span>
+                                <p class="text-neutral-700 dark:text-neutral-300">Обеспечение защиты веб-ресурса от автоматического спама, вредоносных запросов и бот-активности.</p>
+                            </div>
+                            <div>
+                                <span class="text-neutral-400 block mb-0.5">Перечень персональных данных:</span>
+                                <p class="text-neutral-700 dark:text-neutral-300 font-mono">IP-адрес, файлы cookie, сведения о конфигурации браузера и операционной системы, телеметрия взаимодействия.</p>
+                            </div>
+                            <div>
+                                <span class="text-neutral-400 block mb-0.5">Политика конфиденциальности:</span>
+                                <p class="text-neutral-700 dark:text-neutral-300">
+                                    Обработка данных регулируется <a href="https://www.cloudflare.com/en-gb/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer" class="text-brand-indigo font-semibold hover:underline">Соглашением о конфиденциальности Turnstile от Cloudflare</a>.
+                                </p>
+                            </div>
+                            <div>
+                                <span class="text-neutral-400 block mb-0.5">Срок обработки:</span>
+                                <p class="text-neutral-700 dark:text-neutral-300 font-semibold">Определяется политикой Cloudflare, Inc. в соответствии с целями безопасности.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Подвал модалки (фиксированный снизу) -->
+            <div class="px-6 py-4 border-t border-light-border dark:border-dark-border flex justify-end bg-neutral-50/50 dark:bg-neutral-900/30 rounded-b-3xl">
+                <button class="modal-close-btn px-5 py-2.5 bg-dark-bg text-light-bg dark:bg-light-bg dark:text-dark-bg font-semibold text-sm rounded-xl hover:opacity-90 transition-all cursor-pointer">
+                    Закрыть политику
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно успеха отправки (Success Modal) -->
+    <div id="modal-success" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-sm bg-black/40 dark:bg-black/60" role="dialog" aria-modal="true">
+        <!-- Внутреннее окно -->
+        <div class="transform scale-95 transition-all duration-300 w-full max-w-md p-8 md:p-10 rounded-3xl border border-light-border dark:border-dark-border bg-light-card dark:bg-dark-card text-center shadow-2xl relative">
+            
+            <!-- Иконка Успеха (Градиентный круг с галочкой) -->
+            <div class="mx-auto w-16 h-16 rounded-full bg-gradient-to-tr from-brand-indigo to-brand-violet flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-indigo/20">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="32" height="32">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">Заявка принята!</h3>
+            
+            <p class="text-neutral-500 dark:text-neutral-400 text-sm md:text-base leading-relaxed mb-8">
+                Спасибо за доверие! Я уже получил ваше сообщение и свяжусь с вами для обсуждения деталей.
+            </p>
+            
+            <button class="modal-close-btn w-full py-4 px-6 rounded-xl bg-brand-indigo text-white font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-indigo/20 hover:shadow-brand-indigo/30 hover:opacity-95 cursor-pointer">
+                Отлично
+            </button>
+        </div>
+    </div>
 
     <!-- Подключение JS-скрипта логики как ES-модуля -->
     <script type="module" src="/src/js/main.js"></script>

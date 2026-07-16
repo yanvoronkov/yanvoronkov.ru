@@ -20,6 +20,14 @@ const resend = process.env.RESEND_API_KEY
 app.use(cors());
 app.use(express.json());
 
+// Вспомогательная функция для ограничения времени ожидания сторонних сервисов (Telegram, Resend)
+const withTimeout = (promise, ms, serviceName) => {
+  const timeout = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error(`Превышено время ожидания ответа от ${serviceName} (${ms}мс)`)), ms)
+  );
+  return Promise.race([promise, timeout]);
+};
+
 // Проверочный маршрут
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'API-сервер работает корректно' });
@@ -58,15 +66,19 @@ app.post('/api/contact', async (req, res) => {
                           `💬 *Задача / Описание:* \n${desc}`;
 
       const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-      const response = await fetch(telegramUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: textMessage,
-          parse_mode: 'Markdown'
-        })
-      });
+      const response = await withTimeout(
+        fetch(telegramUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: textMessage,
+            parse_mode: 'Markdown'
+          })
+        }),
+        5000,
+        'Telegram API'
+      );
 
       const data = await response.json();
       if (response.ok && data.ok) {
@@ -104,12 +116,16 @@ app.post('/api/contact', async (req, res) => {
         </div>
       `;
 
-      const { error } = await resend.emails.send({
-        from: fromEmail,
-        to: sellerEmail,
-        subject: `🔔 Новая заявка от ${name}`,
-        html: sellerHtml,
-      });
+      const { error } = await withTimeout(
+        resend.emails.send({
+          from: fromEmail,
+          to: sellerEmail,
+          subject: `🔔 Новая заявка от ${name}`,
+          html: sellerHtml,
+        }),
+        6000,
+        'Resend API (Seller)'
+      );
 
       if (error) {
         throw new Error(error.message);
@@ -167,12 +183,16 @@ app.post('/api/contact', async (req, res) => {
           </div>
         `;
 
-        const { error } = await resend.emails.send({
-          from: fromEmail,
-          to: contact.trim(),
-          subject: 'Ваша заявка успешно принята | Ян Воронков',
-          html: clientHtml,
-        });
+        const { error } = await withTimeout(
+          resend.emails.send({
+            from: fromEmail,
+            to: contact.trim(),
+            subject: 'Ваша заявка успешно принята | Ян Воронков',
+            html: clientHtml,
+          }),
+          6000,
+          'Resend API (Client)'
+        );
 
         if (error) {
           throw new Error(error.message);

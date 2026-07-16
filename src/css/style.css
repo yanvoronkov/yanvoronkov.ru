@@ -17,6 +17,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-padding-top: 5rem;
+}
+
 /* Кастомный премиальный скроллбар */
 ::-webkit-scrollbar {
   width: 8px;
@@ -61,3 +65,52 @@ body {
 .animate-fade-in {
   animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Стили для интерактивного аккордеона способов оплаты */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.accordion-content.active {
+  opacity: 1;
+}
+
+.accordion-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-icon.active {
+  transform: rotate(45deg);
+}
+
+/* Активное состояние карточек таймлайна (плашек) и их стрелочек */
+.timeline-card.active-card {
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.12), 0 1px 3px rgba(99, 102, 241, 0.05) !important;
+}
+
+/* Стрелочка внутри карточки шага */
+.timeline-card.active-card > div {
+  border-color: rgba(99, 102, 241, 0.5) !important;
+}
+
+/* Премиальная фоновая сетка-подложка */
+.premium-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background-size: 64px 64px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+}
+.dark .premium-grid {
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+}
+
